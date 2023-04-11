@@ -6,12 +6,15 @@ import bitstamp.client
 
 import credenciais_exemplos
 
+
 def cliente():
     return bitstamp.client.Trading(username=credenciais_exemplos.USERNAME, key=credenciais_exemplos.KEY, secret=credenciais_exemplos.SECRET)
+
 
 def comprar(quantidade):
     trading_client = cliente()
     trading_client.buy_market_order(quantidade)
+
 
 def vender(quantidade):
     trading_client = cliente()
@@ -20,7 +23,7 @@ def vender(quantidade):
 
 def ao_abrir(ws):
     print("Abriu a conexão")
-    
+
     json_subscribe = """
 {
     "event": "bts:subscribe",
@@ -31,25 +34,29 @@ def ao_abrir(ws):
 """
     ws.send(json_subscribe)
 
+
 def ao_fechar(ws):
     print("Fechou a conexão")
+
 
 def erro(ws, erro):
     print("Deu erro")
     print(erro)
 
-def ao_receber_mensagem (ws, mensagem):
+
+def ao_receber_mensagem(ws, mensagem):
     mensagem = json.loads(mensagem)
-    price = (mensagem["data"] ["price"])
+    price = (mensagem["data"]["price"])
     print(price)
 
-    if price > 30000:
+    if price > ("Digite o valor"):
         vender()
-        
-    elif price < 26000:
+
+    elif price < ("Digite o valor"):
         comprar
     else:
         print("Aguardar")
+
 
 if __name__ == "__main__":
     ws = websocket.WebSocketApp("wss://ws.bitstamp.net.",
