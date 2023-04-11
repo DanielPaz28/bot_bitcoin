@@ -4,10 +4,10 @@ import json
 import websocket
 import bitstamp.client
 
-import credenciais
+import credenciais_exemplos
 
 def cliente():
-    return bitstamp.client.Trading(username=credenciais.USERNAME, key=credenciais.KEY, secret=credenciais.SECRET)
+    return bitstamp.client.Trading(username=credenciais_exemplos.USERNAME, key=credenciais_exemplos.KEY, secret=credenciais_exemplos.SECRET)
 
 def comprar(quantidade):
     trading_client = cliente()
