@@ -65,4 +65,4 @@ if __name__ == "__main__":
                                 on_error=erro,
                                 on_message=ao_receber_mensagem)
 
-    ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
+    ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE}) 
